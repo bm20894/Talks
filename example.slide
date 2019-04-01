@@ -1,0 +1,32 @@
+Title of My Presentation
+This is a subtitle
+1 Apr 2019
+
+Miles Boswell
+milesboz@me.com
+http://github.com/bm20894
+
+* Formatting
+Let's *bold* some text
+Let's _italicize_ some text
+
+* Images
+.image https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg
+
+* Showing Code
+.code hello.go
+
+* Showing Partial Code
+Here is a snippet of code specified with comments.
+.code hello.go /show A type/,/end A type/
+This snippet is matched with a regex.
+.code hello.go /^func printStr/,/^}/
+Specifying a certain Highlight overwrites simple Highlights.
+.code hello.go /^func printStr/,/^}/ HLone
+
+* Running Code
+.play hello.go /^func main/,/^}/
+
+* Bullet Points
+- This is a _bullet_ point
+- This is another *bullet* point
