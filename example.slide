@@ -11,6 +11,7 @@ Let's *bold* some text
 Let's _italicize_ some text
 
 * Images
+# img.jpg also works here
 .image https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg
 
 * Showing Code
@@ -28,5 +29,29 @@ Specifying a certain Highlight overwrites simple Highlights.
 .play hello.go /^func main/,/^}/
 
 * Bullet Points
+Some text
+
+** Subsection
 - This is a _bullet_ point
 - This is another *bullet* point
+
+.background bin/example/img.jpg
+
+* Back to Code!
+This code is editable, and has line numbering.
+.play -edit -numbers hello.go /^func main/,/^}/
+
+* Links
+Try this link!
+.link https://golang.org golang.org
+
+* More Images
+Gifs work too!
+.image bin/example/example/earth.gif
+.caption _Earth_ by [[https://github.com/bm20894][Miles Boswell]]
+
+* Presenter Notes
+This slide has notes, but you can't see them :)
+
+: Here are some notes for me.
+: Remember, clicking slides in this window sync with the real presentation.

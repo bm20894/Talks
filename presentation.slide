@@ -1,0 +1,144 @@
+Money Maker Game
+Computer Game and Simulation
+6 Apr 2019
+
+Miles Boswell
+milesboz@me.com
+https://github.com/bm20894/FBLA-Game
+https://talks.godoc.org/github.com/bm20894/Talks/example.slide
+
+* Introduction
+- Who am I?
+Say something to introduce the project to the audience
+5 states require personal finance in high school
+
+33% of Americans have $0 saved for retirement
+
+: My name is Miles Boswell, and I have created a game that will increase the financial literacy of its players by putting good business decisions and practices at the forefront of the playing experience.
+: According to Forbes, Only 5 states require personal finance in high school, and financial literacy is at an all time low. This means that scary statistics like: "33% of Americans have $0 saved for retirement"... are actually true! If our government isn't teaching us the skills we need to survive in this economy, we obviously need to take a different approach.
+
+* Programming!!
+If the government can't teach us, *computers* *will.*
+
+: People are more inclined to learn from something the enjoy than something they dread. If you don't like learning about finance in school, you are likely to face some financial troubles down the road without a solid education.
+Games are fun, and _actually_work_.
+
+* How Was It Made?
+.link https://github.com/pvcraven/arcade arcade repository
+.link http://arcade.academy arcade website
+.image bin/python.jpg
+.caption _Python_ by Miles Boswell
+
+: I have experience working with programming languages including Java, JavaScript, Python, Bash, and Go to name a few, but I decided to create this game almost entirely with Python. This allowed me to scale the project from 1 to 10 script files without adding any complexity to the project. This workflow saved time coding the game, allowing me to focus on developing creative solutions to educate the player.
+: I used a third party library called "arcade" created by Professor Paul Craven to quickly render the graphics of the program onto the machine's GPU, drastically improving the performance of the game and saving valuable developing time
+: The source images were taken from open-source communities on the internet, and the title screens were created using Photoshop.
+
+* Game Basics
+*Objective*: Earn money for the business ("Balance: $____")
+.image bin/head_2.png
+.caption _Top_Bar_of_Game_Screen_
+
+A player can earn money by:
+
+- Answering questions correctly (negative reward for incorrect answers)
+- Collecting coins
+
+.image bin/quart_2_bottom.png _ 400
+.caption _Bottom_of_Quarter_2_game_screen_
+_Each_Quarter_lasts_the_same_amount_of_time._
+
+: The player assumes the role of a business executive that has to answer their coworker's questions to earn the business money. The business's starting balance is $500.
+: Gameplay is divided into 4 quarters to model the fiscal business year. Each quarter, the player can move around using the arrow keys and collide with workers to answer questions or with coins to earn a quick buck.
+: Coins automatically reward $10, but answering a question correctly rewards a unique amount of dollars, anywhere from 50 to $100.
+
+* Quarterly Reports
+Each Quarter lasts 30 seconds, and is followed by a *Quarterly* *Report*.
+.image bin/quart_report1.png _ 500
+.caption _Quarterly_Report_after_Quarter_1_
+_I_didn't_do_too_well_in_this_Quarter..._
+
+: An important feature of the game are Quarterly Reports. A Quarterly Report summarizes the player's earnings at the end of each quarter in a simple line chart that is colorful and easy to interpret. This gives the player immediate feedback on the progress of their business in a format that is common in the business world.
+
+* Quarterly Reports (Cont.)
+The player can click on a Report screen to advance to the next Quarter.
+.video bin/demo3.mp4 video/mp4 _ 500
+.caption _Gameplay_of_a_Quarter_
+_When_answers_are_answered_incorrectly,_the_player_loses_money._
+
+* Quarterly Reports (Cont.)
+This is an example of the final Quarterly Report.
+.video bin/restart.mp4 video/mp4 _ 500
+.caption _Report_for_Quarter_4_
+Because the 4th Quarter is over, so is the game.
+
+: The 4th Quarter is the conclusion of the game, which shows the player's business after an entire fiscal year.
+: As you can see, text reading "Game Over... Click to Restart" appears over the graph. If the player clicks the game window, they will start another game without going to the title screen. If they have finished one game, they already know the rules.
+
+* Abstraction
+How can coins have unique physics, based on the current level?
+.code -numbers code/game.py /def level()/,/end level/
+_File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/game.py][_game.py_]]
+
+: Abstraction is an extremely useful technique to improve the efficiency and elegance of a codebase. Here is an example of a useful abstraction that helped define the physics of a coin in any given level.
+: I use a list of tuples each with a pre-defined class of a Coin sprite and an integer holding the number of coins to spawn.
+: On line 44, I unpack these values from the "levels" list based on the game's current level number, "self.level_number". This line is inside of a "try-catch" statement to catch an Index OutOfBounds error. This occurs when "self.level_number" (the game level number) is greater than 3 (starting counting at 0, of course). If this error is thrown, the level must be greater than 4 (the number of quarters), and therefore, the game is over. Otherwise, draw the walls of the level and continue with the rest of the level execution.
+: I used a very similar technique of grouping tuples in lists to determine the layout of the level, but instead iterated through a list of function literals, executing those up until the current game level number.
+: This simplfies the level function in a really elegant way that makes developing the program much more enjoyable.
+
+* Abstraction (Cont.)
+.code -numbers code/coin.py /start coins/,/end coins/
+_File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/utils/coin.py][_utils/coin.py_]]
+
+: Here are the definitions of the unique Coin classes.
+
+* Algorithm
+How can questions be stored persistently without cluttering other files?
+Can the questions have different answer buttons?
+.code -numbers code/data.py
+_File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/utils/data.py][_utils/data.py_]]
+
+: I used a simple but highly effective algorithm to draw a list of question data
+
+* Algorithm (Cont.)
+How can a question be rendered?
+.code -numbers code/question.py /start question/,/end question/
+_File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/utils/question.py][_utils/question.py_]]
+
+* Mechanics
+How does the game work; what does the code look like?
+Maybe this is where I talk about a certain algorithm and abstraction with provided code snippets.
+Some ideas:
+
+- [x] ABS: how coin physics is determined for each level
+- [ ] ABS: layout changes each level
+- [ ] ALG: worker placement (no collisions with other workers or player)
+- [ ] ABS/ALG: how questions are loaded from a file to being rendered with buttons and stuff
+- [ ] ALG: use variables to determine the state of the game and what should be rendered
+- ... this is a good short list
+
+Maybe try to have some runnable code snippets
+
+* Challenges
+Talk about a challenge _during_ development and with *deployment / distribution*
+
+- *Distribution*: problem with the nature of python as an interpreted language, how to make sure the correct environment was set up, get all source files in a reliable location, make sure dependencies are installed ...
+- *Development*: how will questions have unique answers (true/false vs multiple choice), reduce load on CPU/GPU with too many sprites, debug glitches in physics engine
+
+* Finding Solutions to Challenges
+How did I overcome these obstacles?
+
+* Changes?
+What would I have added if I had more time? What would I have done differently if I could do it all over again?
+
+*Docker!!*
+Docker would be a great way to containerize the project into an easily distributable package that could be run on any machine. With this solution, I wouldn't have to worry about superficial differences between OS's (docker would take care of that for me)
+
+Maybe just do it all in Go ... except the language has almost no support for graphical interfaces. However, it would be really fun and educational to make a web app in Go where the game would be hosted. This would be _infinitely_ easier with Go (as opposed to Python), and super-duper easy to shar with other people - just give them the URL!
+I am not sure a web-game would fall under the guidelines of this competition... but it is still worth dreaming about.
+
+* Practice Running Code
+.play hello.go
+
+* Questions?
+
+: This is a note I have added for myself
