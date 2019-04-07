@@ -34,14 +34,14 @@ class MyGame(arcade.Window):
         self.coin_list = arcade.SpriteList()
         self.start_timer()
 
-        levels = [
-            (arcade.Sprite, 30),
-            (FallingCoin, 30),
-            (RisingCoin, 20),
-            (BouncingCoin, 20)
-        ]
+        levels = [ // HL
+            (arcade.Sprite, 30), // HL
+            (FallingCoin, 30), // HL
+            (RisingCoin, 20), // HL
+            (BouncingCoin, 20) // HL
+        ] // HL
         try:
-            self.coin_type, num_coins = levels[self.level_number]
+            self.coin_type, num_coins = levels[self.level_number] // HL
         except IndexError:
             self.game_state = GAMEOVER
             return
