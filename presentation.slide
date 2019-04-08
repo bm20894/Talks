@@ -1,6 +1,6 @@
 FBLA Financial Literacy Game
 Computer Game and Simulation
-8 Apr 2019
+14:40 8 Apr 2019
 
 Miles Boswell
 milesboz@me.com
@@ -8,16 +8,16 @@ https://github.com/bm20894/FBLA-Game
 https://talks.godoc.org/github.com/bm20894/Talks/presentation.slide
 
 * Financial Literacy in Crisis
-- 5 states require personal finance in high school _[1]_
-- 33% of Americans have $0 saved for retirement _[1]_
+- Only 5 states require personal finance in high school _[1]_
+- About 33% of Americans have $0 saved for retirement _[1]_
 .image http://teaching.monster.com/nfs/teaching/attachment_images/0005/6477/bad_credit_crop380w.jpg?1231614395
 .caption _Source:_ [[http://teaching.monster.com/finance/articles/7531-bad-credit-can-spell-job-search-woes][teaching.monster.com]]
 
-: My name is Miles Boswell, and I have created a game that will increase the financial literacy of its players by putting good business decisions and practices at the forefront of the playing experience.
-: According to Forbes, Only 5 states require personal finance in high school, and financial literacy is at an all time low. This means that scary statistics like: "33% of Americans have $0 saved for retirement"... are actually true! If our government isn't teaching us the skills we need to survive in this economy, we obviously need to take a different approach.
+: Hello everyone, I hope you are doingn well on this fine afternoon. My name is Miles Boswell, | and I have created a game that will increase the financial literacy of its players | by placing good business decisions and practices at the *forefront* of the playing experience.
+: According to Forbes, | Only *5 states* require personal finance in high school, | and financial literacy is at an *all time low*. This means that scary statistics like: "33% of Americans have $0 saved for retirement"... are actually true! If our government isn't teaching us the skills we need to *survive* in this economy, we obviously need to take a different approach.
 : *Actually say this:* Enter Game Simulation.
 
-* How Was It Made?
+* How Was the Product Made?
 - Python Language
 .image bin/python.jpg
 .caption _Python_website:_ [[https://www.python.org/][python.org]]
@@ -25,27 +25,39 @@ https://talks.godoc.org/github.com/bm20894/Talks/presentation.slide
 .link https://github.com/pvcraven/arcade arcade repository
 .link http://arcade.academy arcade website
 
-: I decided to create this game almost entirely with Python. This allowed me to scale the project from 1 to 10 script files without adding any complexity to the project. This workflow saved time coding the game, allowing me to focus on developing creative solutions that educate the player.
-: I used a third party library called "arcade" created by Professor Paul Craven to quickly render the graphics of the program onto the machine's GPU, drastically improving the performance of the game and saving valuable developing time.
+: I decided to create this game almost entirely with a language called *Python*. A simple package structure allowed me to _scale_ the project from 1 to 10 script files without adding *any* complexity to the project. This workflow saved time coding the game, allowing me to focus on developing *creative* solutions that actually *educate* the player.
+: I used a third party library called "arcade" created by Professor Paul Craven to quickly render the graphics of the program onto the machine's GPU, | drastically improving the *performance* of the game and saving *valuable* developing time.
 : *MAYBE* The source images were taken from open-source communities on the internet, and the title screens were created using Photoshop.
 
+* Planning
+
+An easy way to learn is to hit the ground running...
+.image https://underafter-gcs.imgix.net/notes/2018/2018-04-03-graphic-idea-notebook-02.jpg?auto=format&q=50 _ 500
+.caption _An_impressive_notebook_of_ideas_: [[https://underafter-gcs.imgix.net/notes/2018/2018-04-03-graphic-idea-notebook-02.jpg?auto=format&q=50][_underafter.com_]]
+*If* you know where you're going.
+
+: To familiarize myself with the "arcade" library, I created a *repository* on Github.com | filled with different python script files. The process of developing each script taught me *valuable* skills that *directly* translated to the development of the final product.
+: I wrote my vision for the game in a notebook, | a good habit I use when developing large | and small | programs that *interact* with the rest of the world.
+: The notebook laid out everything floating around in my head into the format of a SCRUM; | which is an easily understood format of planning | or "storyboarding" | the release of a program.
+
 * Game Basics
-*Objective*: Earn money for the business ("Balance: $____")
+
+*Objective*: Earn money for the business ("Balance: $____").
 .image bin/head_2.png
 .caption _Top_Bar_of_Game_Screen_
 
 A player can earn money by:
 
-- Answering questions correctly (negative reward for incorrect answers)
-- Collecting coins
+- Answering questions correctly (negative reward for incorrect answers).
+- Collecting coins.
 
 .image bin/quart_2_bottom.png _ 400
 .caption _Bottom_of_Quarter_2_game_screen_
 _Each_Quarter_lasts_the_same_amount_of_time._
 
-: The player assumes the role of a business executive that has to answer their coworker's questions to earn the business money. The business's starting balance is $500.
-: Gameplay is divided into 4 quarters to model the fiscal business year. Each quarter, the player can move around using the arrow keys and collide with workers to answer questions or with coins to earn a quick buck.
-: Coins automatically reward $10, but answering a question correctly rewards a unique bonus, anywhere from 50 to $100.
+: The player assumes the role of a business executive that has to answer their coworker's questions in order to *earn the business money*. The business starts with a balance of $500.
+: The gameplay is divided into 4 quarters | to model the fiscal business year. Each quarter, the player can move around using the arrow keys | and collide with workers to answer questions, or with coins to earn a quick buck.
+: Coins automatically reward the player $10, but answering a question correctly rewards a unique bonus, | anywhere from 50 | to $100.
 
 * Quarterly Reports
 Each Quarter lasts 30 seconds, and is followed by a *Quarterly* *Report*.
@@ -65,7 +77,7 @@ _When_answers_are_answered_incorrectly,_the_player_loses_money._
 
 * Abstraction
 How can coins have unique physics, based on the current level?
-.code -numbers code/game.py /def level()/,/end level/
+.code code/game.py /def level()/,/end level/
 
 _File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/game.py][_game.py_]]
 
@@ -73,7 +85,37 @@ _File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/game.py][_game.py_]]
 : This alone improved the performance of the game by 15%, but many other elements of the codebase including player collisions and questions were abstracted as well.
 : This simplifies the level function in a really elegant way that makes developing the program much more enjoyable, giving me more time to develop the product into a useful, educational tool.
 
+* Challenges
+
+*Distribution*
+
+- Python is an interpreted language...
+- Local environments must be similar in order for code to execute as expected...
+- Can an interpreted project be compiled for different OS's?
+
+*Development*
+
+- How will questions have unique answers (true/false vs multiple choice)?
+- Can the load be reduced on CPU/GPU with many sprites?
+- Can I develop a better physics engine than the provied third party "arcade" engine?
+
+* Solutions
+_How_did_I_overcome_my_obstacles?_
+
+*Freezing* *Code*
+
+- The code could be "frozen" in its current state as a binary file, very easy to run on a specific machine.
+- Unfortunately, this became a struggle when cross-compiling from Ubuntu Linux to Windows.
+
+*Instructions*
+
+- Provide detailed instructions for downloading the source code.
+- Include a Windows batch file to assist _installation_ and _execution_.
+- This is the current solution _(reluctantly)_.
+
 * Questions?
+
+: If you have any questions regarding the codebase of the product, an example of an algorithm, changes I would like to make to the product, or anything else I will be hapy to answer them to the best of my ability.
 
 * Citation
 [1] _Pascarella,_Dani._“4_Stats_That_Reveal_How_Badly_America_Is_Failing_At_Financial_Literacy.”_Forbes,_Forbes_Magazine,_9_Apr._2018,_www.forbes.com/sites/danipascarella/2018/04/03/4-stats-that-reveal-how-badly-america-is-failing-at-financial-literacy/._
@@ -81,26 +123,20 @@ _File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/game.py][_game.py_]]
 * Algorithm
 How can questions be stored persistently without cluttering other files?
 Can the questions have different answer buttons?
-.code -numbers code/data.py
+.code code/data.py
 _File:_ [[https://github.com/bm20894/FBLA-Game/blob/master/utils/data.py][_utils/data.py_]]
 
 : I used a simple but highly effective algorithm to draw a list of question data
-
-* Challenges
-Talk about a challenge _during_ development and with *deployment / distribution*
-
-- *Distribution*: problem with the nature of python as an interpreted language, how to make sure the correct environment was set up, get all source files in a reliable location, make sure dependencies are installed ...
-- *Development*: how will questions have unique answers (true/false vs multiple choice), reduce load on CPU/GPU with too many sprites, debug glitches in physics engine
-
-* Finding Solutions to Challenges
-How did I overcome these obstacles?
+: Bro, you could answer this better without notes.
 
 * Changes?
-What would I have added if I had more time? What would I have done differently if I could do it all over again?
 
-*Docker!!*
-Docker would be a great way to containerize the project into an easily distributable package that could be run on any machine. With this solution, I wouldn't have to worry about superficial differences between OS's (docker would take care of that for me)
+- *Docker* *(Containerization)*: the product should be easily runnable in any environment, on any machine.
+.image https://www.docker.com/sites/default/files/social/docker_facebook_share.png 200 _
+.caption _Docker:_ [[https://www.docker.com/sites/default/files/social/docker_facebook_share.png][image link]]
+- *Web* *Application*: easily distributable with a URL address.
 
-Maybe just do it all in Go ... except the language has almost no support for graphical interfaces. However, it would be really fun and educational to make a web app in Go where the game would be hosted. This would be _infinitely_ easier with Go (as opposed to Python), and super-duper easy to shar with other people - just give them the URL!
-I am not sure a web-game would fall under the guidelines of this competition... but it is still worth dreaming about.
+: Docker would be a great way to containerize the project into an easily distributable package that could be run on any machine. With this solution, I wouldn't have to worry about superficial differences between OS's (docker would take care of that for me).
 
+: I would have also enjoyed developing a web application in another language, maybe JavaScript or Go. However, I am not certain if a browser application falls satisfies the constraints of this event.
+: This approach would make distributing the product extremely easy; only a URL address would be needed to access the game. To reiterate, I am not certain as to the acceptability of a web app submission for this event, ... but it is still worth dreaming about.
